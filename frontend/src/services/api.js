@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-// API Base URL - Update this when deploying to cloud
-const API_BASE_URL = 'http://localhost:8000';
+// API Base URL - Switches between local and production automatically
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:8000'
+  : 'https://fairloan-backend-h4rsh740.a.run.app'; // Placeholder production URL
 
 export const generateData = async () => {
   const response = await axios.post(`${API_BASE_URL}/generate-data`, { n_samples: 500, seed: 42 });
