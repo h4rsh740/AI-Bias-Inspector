@@ -194,12 +194,17 @@ async def api_mitigate_bias(file: UploadFile = File(...), use_gender: bool = For
             },
         }
 
+        fairness_improved = after_metrics["bias_diff"] < before_metrics["bias_diff"]
+        accuracy_delta = after_metrics["accuracy"] - before_metrics["accuracy"]
+
         return {
             **comparison,
             **after_metrics,
             "isMitigated": True,
             "mitigation_method": "ExponentiatedGradient",
             "fairness_constraint": "demographic_parity",
+            "fairness_improved": fairness_improved,
+            "accuracy_delta": accuracy_delta,
             "features_used": list(x_test.columns),
         }
     except Exception as e:
