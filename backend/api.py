@@ -201,7 +201,7 @@ async def api_mitigate_bias(file: UploadFile = File(...), use_gender: bool = For
             **comparison,
             **after_metrics,
             "isMitigated": True,
-            "mitigation_method": "ExponentiatedGradient",
+            "mitigation_method": "GroupRateMatching",
             "fairness_constraint": "demographic_parity",
             "fairness_improved": fairness_improved,
             "accuracy_delta": accuracy_delta,
