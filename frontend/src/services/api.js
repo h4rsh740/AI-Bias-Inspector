@@ -4,7 +4,7 @@ import axios from 'axios';
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8000'
-    : 'https://ai-bias-backend.onrender.com');
+    : 'https://ai-bias-backend-j3oq.onrender.com');
 
 export const generateData = async () => {
   const response = await axios.post(`${API_BASE_URL}/generate-data`, { n_samples: 500, seed: 42 });
