@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^12.12.1",
+    "paul-framework": "^1.2.0"
+  }
+}
